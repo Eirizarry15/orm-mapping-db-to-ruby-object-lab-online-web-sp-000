@@ -9,10 +9,8 @@ class Student
   end
 
   def self.all
-    sql <<-SQL 
-    SELECT * 
-    FROM students 
-    SQL
+    sql = "SELECT * FROM students" 
+    DB[:conn].execute(sql).map do |student_attributes 
     
   end
 
