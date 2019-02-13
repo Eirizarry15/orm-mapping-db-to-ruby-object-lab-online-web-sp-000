@@ -78,7 +78,7 @@ class Student
   end
 
   def self.all_students_in_grade_9(grade)
-    sql = "SELECT * FROM students WHERE grade = 9"
+    sql = "SELECT * FROM students WHERE grade = ?"
     DB[:conn].execute(sql,grade).map do |return_array|
       new_from_db(return_array)
     end
