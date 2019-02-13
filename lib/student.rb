@@ -48,4 +48,10 @@ class Student
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
-end
+
+ def self.count_all_students_in_grade_9
+    sql = "SELECT * FROM students WHERE grade = ?"
+    DB[:conn].execute(sql,9).map do |return_array|
+      new_from_db(return_array)
+    end
+  end
